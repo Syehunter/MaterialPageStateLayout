@@ -3,12 +3,21 @@ PageStateLayout could let you show [Loading][Empty][Error][Succeed][Requesting] 
 
 Improt library:
 
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
 	
+	dependencies {
+	        compile 'com.github.Syehunter:PageStateLayout:0.1.0'
+	}
 
 
 ![](http://7xn4z4.com1.z0.glb.clouddn.com/PageStateLayout.gif)
 
-U can use the layout whereever u want!
+U can use the layout wherever u want!
 
 Following Methods are supported:
 
