@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_records">No Records!</string>
+    <string name="no_network">Network connection Failed!\nClick to Refresh</string>
+</resources>
