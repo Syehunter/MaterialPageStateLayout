@@ -84,7 +84,9 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
             mLoadingView = getLoadingView();
             addView(mLoadingView);
         } else {
-            mLoading.reset();
+            if (mLoading instanceof MaterialProgress) {
+                mLoading.reset();
+            }
         }
 
         if (null == mErrorView) {
