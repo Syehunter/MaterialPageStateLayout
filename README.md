@@ -11,7 +11,7 @@ Improt library:
 	}
 	
 	dependencies {
-	        compile 'com.github.Syehunter:PageStateLayout:0.1.0'
+	        compile 'com.github.Syehunter:PageStateLayout:0.1.1'
 	}
 
 
