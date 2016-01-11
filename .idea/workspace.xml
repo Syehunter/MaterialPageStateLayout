@@ -36,23 +36,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PageStateLayout.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PageStateLayout.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/library/src/main/java/z/sye/space/library/PageStateLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.216217">
-              <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
+            <state vertical-scroll-proportion="3.9280488">
+              <caret line="250" column="38" selection-start-line="250" selection-start-column="38" selection-end-line="250" selection-end-column="38" />
               <folding>
-                <element signature="e#13453#13454#0" expanded="true" />
-                <element signature="e#13494#13495#0" expanded="true" />
+                <element signature="e#13476#13477#0" expanded="true" />
+                <element signature="e#13517#13518#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/library/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24390244">
+            <state vertical-scroll-proportion="0.0">
               <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding />
             </state>
@@ -2500,10 +2500,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_layout_error.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_layout_empty.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/library/src/main/java/z/sye/space/library/PageStateLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/z/sye/space/loadingview/AppApplication.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/library/build.gradle" />
+        <option value="$PROJECT_DIR$/library/src/main/java/z/sye/space/library/PageStateLayout.java" />
       </list>
     </option>
   </component>
@@ -3089,22 +3089,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/src/main/java/z/sye/space/library/PageStateLayout.java">
+    <entry file="file://$PROJECT_DIR$/library/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.216217">
-          <caret line="89" column="9" selection-start-line="89" selection-start-column="9" selection-end-line="89" selection-end-column="9" />
-          <folding>
-            <element signature="e#13453#13454#0" expanded="true" />
-            <element signature="e#13494#13495#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/build.gradle">
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/z/sye/space/library/PageStateLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24390244">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
+        <state vertical-scroll-proportion="3.9280488">
+          <caret line="250" column="38" selection-start-line="250" selection-start-column="38" selection-end-line="250" selection-end-column="38" />
+          <folding>
+            <element signature="e#13476#13477#0" expanded="true" />
+            <element signature="e#13517#13518#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

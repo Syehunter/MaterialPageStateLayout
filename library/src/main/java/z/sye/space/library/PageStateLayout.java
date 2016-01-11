@@ -128,7 +128,7 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
         loadingView.setLayoutParams(params);
 
         mLoading = (MaterialProgress) loadingView.findViewById(R.id.loadingProgress);
-        if (null != Builder.loadingColors) {
+        if (Builder.loadingColors.size() > 0) {
             mLoading.setColors(Builder.loadingColors);
         }
         return loadingView;
@@ -286,7 +286,7 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
         private static Integer error = 0;
         private static Integer empty = 0;
 
-        private static ArrayList<Integer> loadingColors;
+        private static ArrayList<Integer> loadingColors = new ArrayList<>();
 
         private static Integer emptyRippleColor = 0;
         private static Integer emptyImage = 0;
