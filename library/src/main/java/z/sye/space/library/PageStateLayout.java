@@ -2,7 +2,10 @@ package z.sye.space.library;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -104,7 +107,7 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
     }
 
     private View getLoadingView() {
-        if (null == Builder.loading) {
+        if (0 == Builder.loading) {
             mLoadingView = initLoadingView();
         } else {
             mLoadingView = LayoutInflater.from(mContext).inflate(Builder.loading, null, false);
@@ -130,7 +133,7 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
     }
 
     private View getErrorView() {
-        if (null == Builder.error) {
+        if (0 == Builder.error) {
             mErrorView = initErrorView();
         } else {
             mErrorView = LayoutInflater.from(mContext).inflate(Builder.error, null, false);
@@ -149,17 +152,17 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
         errorView.setLayoutParams(params);
 
         RippleView errorRipple = (RippleView) errorView.findViewById(R.id.ripple_error);
-        if (null != Builder.errorRippleColor) {
+        if (0 != Builder.errorRippleColor) {
             errorRipple.setRippleColor(Builder.errorRippleColor);
         }
 
         ImageView errorImage = (ImageView) errorView.findViewById(R.id.iv_error);
-        if (null != Builder.errorImage) {
+        if (0 != Builder.errorImage) {
             errorImage.setBackgroundResource(Builder.errorImage);
         }
 
         TextView errorPromt = (TextView) errorView.findViewById(R.id.tv_error);
-        if (null != Builder.errorPromt) {
+        if (!TextUtils.isEmpty(Builder.errorPromt)) {
             errorPromt.setText(Builder.errorPromt);
         }
 
@@ -167,7 +170,7 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
     }
 
     private View getEmptyView() {
-        if (null == Builder.empty) {
+        if (0 == Builder.empty) {
             mEmptyView = initEmptyView();
         } else {
             mEmptyView = LayoutInflater.from(mContext).inflate(Builder.empty, null, false);
@@ -185,17 +188,17 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
         emptyView.setLayoutParams(params);
 
         RippleView emptyRipple = (RippleView) emptyView.findViewById(R.id.ripple_empty);
-        if (null != Builder.emptyRippleColor) {
+        if (0 != Builder.emptyRippleColor) {
             emptyRipple.setRippleColor(Builder.emptyRippleColor);
         }
 
         ImageView emptyImage = (ImageView) emptyView.findViewById(R.id.iv_empty);
-        if (null != Builder.emptyImage) {
+        if (0 != Builder.emptyImage) {
             emptyImage.setBackgroundResource(Builder.emptyImage);
         }
 
         TextView emptyPromt = (TextView) emptyView.findViewById(R.id.tv_empty);
-        if (null != Builder.emptyPromt) {
+        if (!TextUtils.isEmpty(Builder.emptyPromt)) {
             emptyPromt.setText(Builder.emptyPromt);
         }
 
@@ -277,19 +280,19 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
 
         }
 
-        private static Integer loading;
-        private static Integer error;
-        private static Integer empty;
+        private static Integer loading = 0;
+        private static Integer error = 0;
+        private static Integer empty = 0;
 
         private static ArrayList<Integer> loadingColors;
 
-        private static Integer emptyRippleColor;
-        private static Integer emptyImage;
-        private static String emptyPromt;
+        private static Integer emptyRippleColor = 0;
+        private static Integer emptyImage = 0;
+        private static String emptyPromt = "";
 
-        private static Integer errorRippleColor;
-        private static Integer errorImage;
-        private static String errorPromt;
+        private static Integer errorRippleColor = 0;
+        private static Integer errorImage = 0;
+        private static String errorPromt = "";
 
         /**
          * Set your loadingView
@@ -381,6 +384,106 @@ public class PageStateLayout extends FrameLayout implements PageStateListener {
         public static Builder setErrorPromt(String promt) {
             errorPromt = promt;
             return mInstance;
+        }
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        PageStateSavedState ss = new PageStateSavedState(super.onSaveInstanceState());
+        ss.mLoading = Builder.loading;
+        ss.mEmpty = Builder.empty;
+        ss.mError = Builder.error;
+        ss.mLoadingColors = Builder.loadingColors;
+        ss.mEmptyRippleColor = Builder.emptyRippleColor;
+        ss.mEmptyImage = Builder.emptyImage;
+        ss.mEmptyPromt = Builder.emptyPromt;
+        ss.mErrorRippleColor = Builder.errorRippleColor;
+        ss.mErrorImage = Builder.errorImage;
+        ss.mErrorPromt = Builder.errorPromt;
+        return ss;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (!(state instanceof PageStateSavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        PageStateSavedState ss = (PageStateSavedState) state;
+        super.onRestoreInstanceState(ss);
+
+        Builder.loading = ss.mLoading;
+        Builder.empty = ss.mEmpty;
+        Builder.error = ss.mError;
+        Builder.loadingColors = ss.mLoadingColors;
+        Builder.emptyRippleColor = ss.mEmptyRippleColor;
+        Builder.emptyImage = ss.mEmptyImage;
+        Builder.emptyPromt = ss.mEmptyPromt;
+        Builder.errorRippleColor = ss.mErrorRippleColor;
+        Builder.errorImage = ss.mErrorImage;
+        Builder.errorPromt = ss.mErrorPromt;
+    }
+
+    static class PageStateSavedState extends BaseSavedState {
+
+        Integer mLoading;
+        Integer mError;
+        Integer mEmpty;
+
+        ArrayList<Integer> mLoadingColors;
+
+        Integer mEmptyRippleColor;
+        Integer mEmptyImage;
+        String mEmptyPromt;
+
+        Integer mErrorRippleColor;
+        Integer mErrorImage;
+        String mErrorPromt;
+
+        private static final Parcelable.Creator<PageStateSavedState> mCreator = new Creator<PageStateSavedState>() {
+            @Override
+            public PageStateSavedState createFromParcel(Parcel source) {
+                return new PageStateSavedState(source);
+            }
+
+            @Override
+            public PageStateSavedState[] newArray(int size) {
+                return new PageStateSavedState[size];
+            }
+        };
+
+        PageStateSavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        private PageStateSavedState(Parcel source) {
+            super(source);
+            mLoading = source.readInt();
+            mError = source.readInt();
+            mEmpty = source.readInt();
+            mLoadingColors = source.readArrayList(Integer.class.getClassLoader());
+            mEmptyRippleColor = source.readInt();
+            mEmptyImage = source.readInt();
+            mEmptyPromt = source.readString();
+            mErrorRippleColor = source.readInt();
+            mErrorImage = source.readInt();
+            mErrorPromt = source.readString();
+        }
+
+        @Override
+        public void writeToParcel(Parcel out, int flags) {
+            super.writeToParcel(out, flags);
+            out.writeInt(mLoading);
+            out.writeInt(mError);
+            out.writeInt(mEmpty);
+            out.writeList(mLoadingColors);
+            out.writeInt(mEmptyRippleColor);
+            out.writeInt(mEmptyImage);
+            out.writeString(mEmptyPromt);
+            out.writeInt(mErrorRippleColor);
+            out.writeInt(mErrorImage);
+            out.writeString(mErrorPromt);
         }
     }
 }
