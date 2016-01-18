@@ -68,12 +68,12 @@ public class MaterialProgress extends View {
         mStrokeWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mStrokeWidth, metrics);
         mRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mRadius, metrics);
 
-        mStartColor = a.getColor(R.styleable.MaterialProgress_startColor, mStartColor);
-        mMidColor = a.getColor(R.styleable.MaterialProgress_midColor, mMidColor);
-        mEndColor = a.getColor(R.styleable.MaterialProgress_endColor, mEndColor);
-        mRadius = (int) a.getDimension(R.styleable.MaterialProgress_radius, mRadius);
-        mStrokeWidth = (int) a.getDimension(R.styleable.MaterialProgress_strokeWidth, mStrokeWidth);
-        mSpeed = a.getFloat(R.styleable.MaterialProgress_speed, mSpeed);
+        mStartColor = a.getColor(R.styleable.MaterialProgress_mp_startColor, mStartColor);
+        mMidColor = a.getColor(R.styleable.MaterialProgress_mp_midColor, mMidColor);
+        mEndColor = a.getColor(R.styleable.MaterialProgress_mp_endColor, mEndColor);
+        mRadius = (int) a.getDimension(R.styleable.MaterialProgress_mp_radius, mRadius);
+        mStrokeWidth = (int) a.getDimension(R.styleable.MaterialProgress_mp_strokeWidth, mStrokeWidth);
+        mSpeed = a.getFloat(R.styleable.MaterialProgress_mp_speed, mSpeed);
         a.recycle();
 
         mColors.add(mStartColor);

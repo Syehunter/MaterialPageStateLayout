@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="MaterialProgress">
-        <attr name="startColor" format="color"/>
-        <attr name="midColor" format="color"/>
-        <attr name="endColor" format="color"/>
-        <attr name="radius" format="dimension"/>
-        <attr name="strokeWidth" format="dimension"/>
-        <attr name="speed" format="float"/>
+        <attr name="mp_startColor" format="color"/>
+        <attr name="mp_midColor" format="color"/>
+        <attr name="mp_endColor" format="color"/>
+        <attr name="mp_radius" format="dimension"/>
+        <attr name="mp_strokeWidth" format="dimension"/>
+        <attr name="mp_speed" format="float"/>
     </declare-styleable>
 
     <declare-styleable name="RippleView">
